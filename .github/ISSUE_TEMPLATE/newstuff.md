@@ -1,6 +1,7 @@
 ---
 name: IGOR KING
 description: Report why igor is king
+about: Use this template for tracking new features.
 title: "[Bug]: "
 labels: [igor, needs-triage]
 assignees: iggy-pr0pi
