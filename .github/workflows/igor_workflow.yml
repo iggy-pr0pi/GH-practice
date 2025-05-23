@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: Access a var
         run: | 
-          echo "${{ variable.VAR_TEST }}" > token.txt
+          echo "${{ vars.VAR_TEST }}" > token.txt
           cat token.txt
