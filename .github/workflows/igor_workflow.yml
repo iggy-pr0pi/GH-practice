@@ -7,4 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Access a secret
-        run: echo "Encoded secret: $(echo '${{ secrets.SECRET_NAME }}' | base64)"
+        run: | 
+          echo "${{ secrets.SECRET_NAME }}" > token.txt
+          echo "cat token.txt"
