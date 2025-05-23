@@ -1,9 +1,19 @@
+name: Show Context Demo
+
+on:
+  workflow_dispatch:  # Manual trigger (you click "Run workflow" in the UI)
+
 jobs:
   example:
     runs-on: ubuntu-latest
     env:
       MY_ENV: production
     steps:
-      - run: echo "Running in ${{ github.repository }} on branch ${{ github.ref }}"
-      - run: echo "Environment is ${{ env.MY_ENV }}"
-      - run: echo "This is a secret: ${{ secrets.MY_SECRET }}"
+      - name: Show repository and branch
+        run: echo "Running in ${{ github.repository }} on branch ${{ github.ref }}"
+
+      - name: Show environment variable
+        run: echo "Environment is ${{ env.MY_ENV }}"
+
+      - name: Show secret
+        run: echo "This is a secret: ${{ secrets.MY_SECRET }}"
