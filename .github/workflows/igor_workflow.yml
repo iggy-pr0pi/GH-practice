@@ -6,7 +6,7 @@ jobs:
   igor-secret-example:
     runs-on: ubuntu-latest
     steps:
-      - name: Access a secret
+      - name: Access a var
         run: | 
-          echo "${{ secrets.SECRET_NAME }}" > token.txt
+          echo "${{ variable.VAR_TEST }}" > token.txt
           cat token.txt
