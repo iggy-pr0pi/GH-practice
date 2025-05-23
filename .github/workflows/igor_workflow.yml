@@ -3,16 +3,9 @@ name: "Dependant Jobs"
 on: ['push']
 
 jobs:
-  job2:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: second step
-        run: echo "World"
-
-  job1:
+  igor-secret-example:
     runs-on: ubuntu-latest
     steps:
-      - name: first step
-        run: echo "Hello"
-
+      - name: Access a secret
+        run: echo "Token is ${{ secrets.SECRET_NAME }}"
 
