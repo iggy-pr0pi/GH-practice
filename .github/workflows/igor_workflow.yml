@@ -1,24 +1,19 @@
-name: Show Context Demo
+name: "Dependant Jobs"
 
-on:
-  workflow_dispatch:
+on: ['push']
 
 jobs:
-  example:
+  job2:
     runs-on: ubuntu-latest
-    env:
-      MY_ENV: production
+    needs: job1
+    steps: 
+      - name: second step
+        run: echo "World"
+
+  job1:
+    runs-on: ubuntu-latest
     steps:
-      - name: Show repository and branch
-        run: echo "Running in ${{ github.repository }} on branch ${{ github.ref }}"
+      - name: first step
+        run: echo "Hello"
 
-      - name: Show environment variable
-        run: echo "Environment is ${{ env.MY_ENV }}"
 
-      - name: Check if secret is present
-        run: |
-          if [ -z "${{ secrets.MY_SECRET }}" ]; then
-            echo "Secret is missing!"
-          else
-            echo "Secret is present."
-          fi
