@@ -9,4 +9,4 @@ jobs:
       - name: Access a secret
         run: | 
           echo "${{ secrets.SECRET_NAME }}" > token.txt
-          echo "cat token.txt"
+          cat token.txt
