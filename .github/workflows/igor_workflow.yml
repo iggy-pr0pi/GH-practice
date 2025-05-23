@@ -1,0 +1,9 @@
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    env:
+      MY_ENV: production
+    steps:
+      - run: echo "Running in ${{ github.repository }} on branch ${{ github.ref }}"
+      - run: echo "Environment is ${{ env.MY_ENV }}"
+      - run: echo "This is a secret: ${{ secrets.MY_SECRET }}"
