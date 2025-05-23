@@ -1,7 +1,7 @@
 name: Show Context Demo
 
 on:
-  workflow_dispatch:  # Manual trigger (you click "Run workflow" in the UI)
+  workflow_dispatch:
 
 jobs:
   example:
@@ -15,5 +15,10 @@ jobs:
       - name: Show environment variable
         run: echo "Environment is ${{ env.MY_ENV }}"
 
-      - name: Show secret
-        run: echo "This is a secret: ${{ secrets.MY_SECRET }}"
+      - name: Check if secret is present
+        run: |
+          if [ -z "${{ secrets.MY_SECRET }}" ]; then
+            echo "Secret is missing!"
+          else
+            echo "Secret is present."
+          fi
